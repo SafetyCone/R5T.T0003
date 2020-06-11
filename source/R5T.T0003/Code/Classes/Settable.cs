@@ -44,6 +44,13 @@ namespace R5T.T0003
             this.Value = value; // Will be set.
         }
 
+        public void Unset()
+        {
+            this.zValue = default(T);
+
+            this.IsSet = false;
+        }
+
         public override string ToString()
         {
             var representation = $"{this.Value} ({(this.IsSet ? "set" : "unset")})";
