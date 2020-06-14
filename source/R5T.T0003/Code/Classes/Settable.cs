@@ -8,6 +8,22 @@ namespace R5T.T0003
     /// </summary>
     public sealed class Settable<T>
     {
+        #region Static
+
+        public static Settable<T> New(T value, bool isSet)
+        {
+            var output = new Settable<T>
+            {
+                zValue = value,
+                IsSet = isSet
+            };
+
+            return output;
+        }
+
+        #endregion
+
+
         public static implicit operator Settable<T>(T value) => new Settable<T>(value);
 
 
@@ -33,7 +49,7 @@ namespace R5T.T0003
         /// </summary>
         public Settable()
         {
-            this.zValue = default(T);
+            this.zValue = default;
         }
 
         /// <summary>
@@ -46,7 +62,7 @@ namespace R5T.T0003
 
         public void Unset()
         {
-            this.zValue = default(T);
+            this.zValue = default;
 
             this.IsSet = false;
         }
