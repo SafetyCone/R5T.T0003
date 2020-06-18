@@ -113,8 +113,16 @@ namespace R5T.T0003
                 return false;
             }
 
-            var isEqual = this.Value.Equals(other.Value);
-            return isEqual;
+            if(this.Value is object)
+            {
+                var isEqual = this.Value.Equals(other.Value);
+                return isEqual;
+            }
+            else
+            {
+                var isEqual = !(other.Value is object);
+                return isEqual;
+            }
         }
 
         public override bool Equals(object obj)
