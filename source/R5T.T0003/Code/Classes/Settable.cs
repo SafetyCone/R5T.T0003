@@ -106,6 +106,13 @@ namespace R5T.T0003
 
         private bool Equals_Value(Settable<T> other)
         {
+            // First compare whether the settables are both set.
+            var isSetIsEqual = this.IsSet == other.IsSet;
+            if(!isSetIsEqual)
+            {
+                return false;
+            }
+
             var isEqual = this.Value.Equals(other.Value);
             return isEqual;
         }
